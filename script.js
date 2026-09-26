@@ -8,7 +8,6 @@ const message = `خواهر عزیزم، تولدت مبارک 🤍✨
 آرزو می‌کنم در سال جدید زندگی‌ات، هیچ غمی ماندگار نباشد، دلت همیشه آرام بماند و لبخندت هیچ‌وقت از روزهایت دور نشود.
 امیدوارم تمام آرزوهایی که شاید هیچ‌وقت به زبان نیاوردی، یکی‌یکی به زیباترین شکل ممکن برایت اتفاق بیفتند.
 
-تولدت مبارک، خواهر کوچولوی من؛
 همیشه بخند، همیشه بدرخش و همیشه یادت باشد که بودنت برای من باارزش است. 🫂🤍✨`;
 
 const typedText = document.getElementById("typed-text");
@@ -64,7 +63,7 @@ function typeText() {
     }
 }
 
-/* ---------------- Generate Stars ---------------- */
+/* Generate Stars */
 
 const starsContainer = document.querySelector(".stars");
 
@@ -98,7 +97,7 @@ for (let i = 0; i < starCount; i++) {
     starsContainer.appendChild(star);
 }
 
-/* ---------------- Start Typing ---------------- */
+/* Start Typing */
 
 window.addEventListener("load", () => {
 
