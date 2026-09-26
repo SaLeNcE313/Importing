@@ -238,11 +238,26 @@ body {
         0 2px 14px rgba(185, 143, 175, 0.52),
         0 0 25px rgba(185, 143, 175, 0.18);
 
-    white-space: pre-wrap;
+    white-space: normal;
+
+    direction: rtl;
 }
 
+/* مهم:
+   متن تایپ‌شونده کاملاً وسط صفحه */
+
 #typed-text {
+    display: block;
+
+    width: 100%;
+
+    text-align: center;
+
+    direction: rtl;
+
     white-space: pre-wrap;
+
+    margin: 0 auto;
 }
 
 /* =========================
@@ -277,7 +292,6 @@ body {
 
 /* =========================
    FINAL BIRTHDAY MESSAGE
-   SPECIAL STYLE
 ========================= */
 
 .final-message {
@@ -307,6 +321,8 @@ body {
 
     text-align: center;
 
+    direction: rtl;
+
     opacity: 0;
 
     transform:
@@ -325,8 +341,6 @@ body {
         0 0 20px rgba(190, 135, 175, 0.30),
         0 0 40px rgba(170, 110, 155, 0.12);
 }
-
-/* Soft glow behind the final message */
 
 .final-message::before {
     content: "";
@@ -354,8 +368,6 @@ body {
 
     pointer-events: none;
 }
-
-/* Final message appears */
 
 .final-message.show {
     opacity: 1;
@@ -421,9 +433,19 @@ footer {
     }
 
     .message-box {
+        width: 100%;
+
         font-size: 14px;
 
         line-height: 2.25;
+
+        text-align: center;
+    }
+
+    #typed-text {
+        width: 100%;
+
+        text-align: center;
     }
 
     .final-message {
