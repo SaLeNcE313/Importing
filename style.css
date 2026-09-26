@@ -1,0 +1,353 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: "Vazirmatn", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(128, 61, 130, 0.28),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(180, 74, 130, 0.20),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #09030d,
+            #160818,
+            #0b0613,
+            #18091b
+        );
+
+    color: #e7e3e8;
+    position: relative;
+}
+
+/* ---------------- Stars ---------------- */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.25;
+        transform: scale(0.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+
+/* ---------------- Nebula ---------------- */
+
+.nebula {
+    position: fixed;
+
+    width: 320px;
+    height: 320px;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.nebula-one {
+    top: -120px;
+    left: -100px;
+
+    background: rgba(155, 66, 145, 0.16);
+}
+
+.nebula-two {
+    right: -120px;
+    bottom: -100px;
+
+    background: rgba(196, 83, 140, 0.13);
+}
+
+/* ---------------- Shooting Stars ---------------- */
+
+.shooting-star {
+    position: fixed;
+
+    width: 90px;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 210, 235, 0.75),
+        transparent
+    );
+
+    transform: rotate(-35deg);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.shooting-one {
+    top: 18%;
+    left: 8%;
+
+    animation: shooting 7s infinite 2s;
+}
+
+.shooting-two {
+    top: 55%;
+    right: 5%;
+
+    animation: shooting 9s infinite 5s;
+}
+
+@keyframes shooting {
+
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(-35deg);
+    }
+
+    5% {
+        opacity: 0.8;
+    }
+
+    18% {
+        opacity: 0;
+        transform: translate(220px, 150px) rotate(-35deg);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* ---------------- Main ---------------- */
+
+.birthday-container {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(900px, 90%);
+
+    margin: 0 auto;
+
+    min-height: calc(100vh - 65px);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 60px 0 100px;
+}
+
+/* ---------------- Small Star ---------------- */
+
+.little-star {
+    font-size: 18px;
+
+    color: #e4c7d8;
+
+    margin-bottom: 25px;
+
+    opacity: 0.75;
+
+    text-shadow:
+        0 0 10px rgba(190, 145, 175, 0.6),
+        0 0 25px rgba(190, 145, 175, 0.25);
+}
+
+/* ---------------- Message ---------------- */
+
+.message-box {
+    width: 100%;
+
+    text-align: center;
+
+    font-size: clamp(15px, 2vw, 19px);
+
+    font-weight: 300;
+
+    line-height: 2.35;
+
+    color: #e7e3e8;
+
+    text-shadow:
+        0 2px 14px rgba(185, 143, 175, 0.52),
+        0 0 25px rgba(185, 143, 175, 0.18);
+
+    white-space: pre-wrap;
+
+    min-height: 300px;
+}
+
+#typed-text {
+    white-space: pre-wrap;
+}
+
+/* ---------------- Cursor ---------------- */
+
+.cursor {
+    display: inline-block;
+
+    margin-right: 3px;
+
+    color: #d9a9c8;
+
+    animation: blink 0.9s infinite;
+
+    text-shadow:
+        0 0 10px rgba(190, 145, 175, 0.7);
+}
+
+@keyframes blink {
+
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    46%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* ---------------- Final Message ---------------- */
+
+.final-message {
+    margin-top: 45px;
+
+    font-size: clamp(17px, 2.4vw, 23px);
+
+    font-weight: 400;
+
+    color: #e4c3d6;
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+
+    text-shadow:
+        0 0 12px rgba(190, 145, 175, 0.62),
+        0 0 30px rgba(190, 145, 175, 0.22);
+}
+
+.final-message.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+/* ---------------- Footer ---------------- */
+
+footer {
+    position: fixed;
+
+    bottom: 18px;
+    left: 0;
+    right: 0;
+
+    z-index: 5;
+
+    text-align: center;
+
+    direction: ltr;
+
+    font-family: "Vazirmatn", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 300;
+
+    letter-spacing: 0.7px;
+
+    color: rgba(225, 220, 225, 0.48);
+
+    text-shadow:
+        0 0 9px rgba(185, 143, 175, 0.42),
+        0 0 18px rgba(185, 143, 175, 0.12);
+}
+
+/* ---------------- Mobile ---------------- */
+
+@media (max-width: 600px) {
+
+    .birthday-container {
+        width: 88%;
+
+        padding-top: 45px;
+        padding-bottom: 80px;
+    }
+
+    .message-box {
+        font-size: 14px;
+
+        line-height: 2.25;
+    }
+
+    .final-message {
+        margin-top: 35px;
+
+        font-size: 17px;
+    }
+
+    footer {
+        bottom: 12px;
+
+        font-size: 10px;
+    }
+}
