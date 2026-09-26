@@ -47,7 +47,14 @@ function typeText() {
 
         const character = message[index];
 
-        typedText.textContent += character;
+        /*
+         * متن را قبل از Cursor قرار می‌دهیم.
+         * به این شکل Cursor همیشه دقیقاً
+         * کنار آخرین حرف تایپ‌شده می‌ماند.
+         */
+        const textNode = document.createTextNode(character);
+
+        typedText.insertBefore(textNode, cursor);
 
         index++;
 
