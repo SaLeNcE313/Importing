@@ -39,7 +39,9 @@ body {
     position: relative;
 }
 
-/* Stars */
+/* =========================
+   STARS
+========================= */
 
 .stars {
     position: fixed;
@@ -52,14 +54,19 @@ body {
 
 .star {
     position: absolute;
+
     width: 2px;
     height: 2px;
+
     border-radius: 50%;
+
     background: rgba(255, 255, 255, 0.75);
+
     animation: twinkle 3s infinite ease-in-out;
 }
 
 @keyframes twinkle {
+
     0%,
     100% {
         opacity: 0.25;
@@ -72,34 +79,46 @@ body {
     }
 }
 
-/* Nebula */
+/* =========================
+   NEBULA
+========================= */
 
 .nebula {
     position: fixed;
+
     width: 320px;
     height: 320px;
+
     border-radius: 50%;
+
     filter: blur(90px);
+
     pointer-events: none;
+
     z-index: 0;
 }
 
 .nebula-one {
     top: -120px;
     left: -100px;
+
     background: rgba(155, 66, 145, 0.16);
 }
 
 .nebula-two {
     right: -120px;
     bottom: -100px;
+
     background: rgba(196, 83, 140, 0.13);
 }
 
-/* Shooting Stars */
+/* =========================
+   SHOOTING STARS
+========================= */
 
 .shooting-star {
     position: fixed;
+
     width: 90px;
     height: 1px;
 
@@ -111,24 +130,30 @@ body {
     );
 
     transform: rotate(-35deg);
+
     opacity: 0;
+
     pointer-events: none;
+
     z-index: 1;
 }
 
 .shooting-one {
     top: 18%;
     left: 8%;
+
     animation: shooting 7s infinite 2s;
 }
 
 .shooting-two {
     top: 55%;
     right: 5%;
+
     animation: shooting 9s infinite 5s;
 }
 
 @keyframes shooting {
+
     0% {
         opacity: 0;
         transform: translate(0, 0) rotate(-35deg);
@@ -148,32 +173,43 @@ body {
     }
 }
 
-/* Main */
+/* =========================
+   MAIN
+========================= */
 
 .birthday-container {
     position: relative;
+
     z-index: 2;
 
     width: min(900px, 90%);
+
     margin: 0 auto;
 
     min-height: calc(100vh - 65px);
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
+
     align-items: center;
 
     padding: 60px 0 100px;
 }
 
-/* Small Star */
+/* =========================
+   SMALL STAR
+========================= */
 
 .little-star {
     font-size: 18px;
+
     color: #e4c7d8;
+
     margin-bottom: 25px;
+
     opacity: 0.75;
 
     text-shadow:
@@ -181,7 +217,9 @@ body {
         0 0 25px rgba(190, 145, 175, 0.25);
 }
 
-/* Message */
+/* =========================
+   MAIN MESSAGE
+========================= */
 
 .message-box {
     width: 100%;
@@ -203,13 +241,13 @@ body {
     white-space: pre-wrap;
 }
 
-/* Typed Text */
-
 #typed-text {
     white-space: pre-wrap;
 }
 
-/* Cursor */
+/* =========================
+   CURSOR
+========================= */
 
 .cursor {
     display: inline;
@@ -225,6 +263,7 @@ body {
 }
 
 @keyframes blink {
+
     0%,
     45% {
         opacity: 1;
@@ -236,50 +275,107 @@ body {
     }
 }
 
-/* Final Birthday Message - iPhone Style */
+/* =========================
+   FINAL BIRTHDAY MESSAGE
+   SPECIAL STYLE
+========================= */
 
 .final-message {
-    margin-top: 45px;
+    position: relative;
+
+    margin-top: 48px;
+
+    padding: 4px 18px;
 
     font-family:
+        "Vazirmatn",
         -apple-system,
         BlinkMacSystemFont,
         "SF Pro Display",
-        "SF Pro Text",
         "Helvetica Neue",
-        Arial,
         sans-serif;
 
-    font-size: clamp(18px, 2.5vw, 24px);
+    font-size: clamp(19px, 3vw, 27px);
 
-    font-weight: 400;
+    font-weight: 500;
 
-    color: #e8d2df;
+    letter-spacing: 0.15px;
+
+    line-height: 1.9;
+
+    color: #f0dce7;
+
+    text-align: center;
 
     opacity: 0;
 
-    transform: translateY(10px);
+    transform:
+        translateY(14px)
+        scale(0.97);
+
+    filter: blur(4px);
 
     transition:
         opacity 1.5s ease,
-        transform 1.5s ease;
+        transform 1.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+        filter 1.5s ease;
 
     text-shadow:
-        0 0 12px rgba(190, 145, 175, 0.62),
-        0 0 30px rgba(190, 145, 175, 0.22);
+        0 0 8px rgba(210, 166, 195, 0.55),
+        0 0 20px rgba(190, 135, 175, 0.30),
+        0 0 40px rgba(170, 110, 155, 0.12);
 }
+
+/* Soft glow behind the final message */
+
+.final-message::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 75%;
+    height: 70px;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(190, 135, 175, 0.14),
+            transparent 70%
+        );
+
+    filter: blur(18px);
+
+    z-index: -1;
+
+    pointer-events: none;
+}
+
+/* Final message appears */
 
 .final-message.show {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    filter: blur(0);
 }
 
-/* Footer */
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     position: fixed;
 
     bottom: 18px;
+
     left: 0;
     right: 0;
 
@@ -311,28 +407,44 @@ footer {
         0 0 18px rgba(185, 143, 175, 0.12);
 }
 
-/* Mobile */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 600px) {
 
     .birthday-container {
         width: 88%;
+
         padding-top: 45px;
         padding-bottom: 80px;
     }
 
     .message-box {
         font-size: 14px;
+
         line-height: 2.25;
     }
 
     .final-message {
-        margin-top: 35px;
-        font-size: 17px;
+        margin-top: 38px;
+
+        padding: 3px 12px;
+
+        font-size: 20px;
+
+        line-height: 1.9;
+    }
+
+    .final-message::before {
+        width: 90%;
+
+        height: 60px;
     }
 
     footer {
         bottom: 12px;
+
         font-size: 10px;
     }
 }
