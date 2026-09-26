@@ -46,9 +46,12 @@ body {
 .stars {
     position: fixed;
     inset: 0;
+
     width: 100%;
     height: 100%;
+
     pointer-events: none;
+
     z-index: 0;
 }
 
@@ -243,13 +246,15 @@ body {
     direction: rtl;
 }
 
-/* مهم:
-   متن تایپ‌شونده کاملاً وسط صفحه */
+/*
+   متن تایپ‌شونده داخل همین عنصر قرار دارد
+   تا Cursor بتواند کنار آخرین حرف بماند.
+*/
 
 #typed-text {
-    display: block;
+    display: inline;
 
-    width: 100%;
+    width: auto;
 
     text-align: center;
 
@@ -257,7 +262,7 @@ body {
 
     white-space: pre-wrap;
 
-    margin: 0 auto;
+    margin: 0;
 }
 
 /* =========================
@@ -265,11 +270,15 @@ body {
 ========================= */
 
 .cursor {
-    display: inline;
+    display: inline-block;
 
-    margin-right: 3px;
+    width: 2px;
+
+    margin-right: 4px;
 
     color: #d9a9c8;
+
+    vertical-align: baseline;
 
     animation: blink 0.9s infinite;
 
@@ -443,8 +452,6 @@ footer {
     }
 
     #typed-text {
-        width: 100%;
-
         text-align: center;
     }
 
