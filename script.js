@@ -48,10 +48,11 @@ function typeText() {
         const character = message[index];
 
         /*
-         * متن را قبل از Cursor قرار می‌دهیم.
-         * به این شکل Cursor همیشه دقیقاً
-         * کنار آخرین حرف تایپ‌شده می‌ماند.
+         * هر حرف قبل از Cursor قرار می‌گیرد.
+         * بنابراین Cursor همیشه دقیقاً کنار
+         * آخرین حرف در حال تایپ می‌ماند.
          */
+
         const textNode = document.createTextNode(character);
 
         typedText.insertBefore(textNode, cursor);
@@ -65,12 +66,16 @@ function typeText() {
         cursor.style.display = "none";
 
         setTimeout(() => {
+
             finalMessage.classList.add("show");
+
         }, 650);
     }
 }
 
-/* Generate Stars */
+/* =========================
+   GENERATE STARS
+========================= */
 
 const starsContainer = document.querySelector(".stars");
 
@@ -104,12 +109,16 @@ for (let i = 0; i < starCount; i++) {
     starsContainer.appendChild(star);
 }
 
-/* Start Typing */
+/* =========================
+   START TYPING
+========================= */
 
 window.addEventListener("load", () => {
 
     setTimeout(() => {
+
         typeText();
+
     }, 900);
 
 });
